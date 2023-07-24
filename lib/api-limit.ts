@@ -24,7 +24,7 @@ export const increaseApiLimit = async () => {
   }
 };
 
-export const isApiLimitExceeded = async () => {
+export const checkApiLimit = async () => {
   const { userId } = auth();
 
   if (!userId) return;
