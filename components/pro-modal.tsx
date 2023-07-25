@@ -108,6 +108,7 @@ export const ProModal = () => {
         </DialogHeader>
         <DialogFooter>
           <Button
+            disabled={loading}
             variant="premium"
             size="lg"
             className="w-full"

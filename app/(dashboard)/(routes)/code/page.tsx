@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { ChatCompletionRequestMessage } from "openai";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import toast from "react-hot-toast";
 
 import { Heading } from "@/components/heading";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
@@ -56,6 +57,8 @@ const CodePage = () => {
       if (error?.response?.status === 403) {
         console.log("403");
         proModal.onOpen();
+      } else {
+        toast.error("Something went wrong.");
       }
     } finally {
       router.refresh();
