@@ -7,7 +7,7 @@ import { stripe } from "@/lib/stripe";
 
 export async function POST(req: Request) {
   const body = await req.text();
-  const signature = req.headers.get("stripe-signature") as string;
+  const signature = headers().get("Stripe-Signature") as string;
 
   let event: Stripe.Event;
 
@@ -31,13 +31,13 @@ export async function POST(req: Request) {
     );
 
     if (!session?.metadata?.userId) {
-      return new NextResponse("User id is required", { status: 404 });
+      return new NextResponse("User id is required", { status: 400 });
     }
 
     await prismadb.userSubscription.create({
       data: {
         userId: session?.metadata?.userId,
-        stripeSubscriptionId: session.id,
+        stripeSubscriptionId: subscription.id,
         stripeCustomerId: subscription.customer as string,
         stripePriceId: subscription.items.data[0].price.id,
         stripeCurrentPeriodEnd: new Date(
