@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import Sidebar from "@/components/sidebar";
+import { Sidebar2 } from "@/components/sidebar2";
 
 interface MobileSidebarProps {
   apiLimitCount: number;
@@ -33,7 +33,7 @@ const MobileSidebar = ({
       <SheetContent
         // Create an object with the correct props
         {...{
-          children: <Sidebar isPro={isPro} apiLimitCount={apiLimitCount} />,
+          children: <Sidebar2 isPro={isPro} apiLimitCount={apiLimitCount} />,
           side: "left",
           className: "p-0",
         }}
