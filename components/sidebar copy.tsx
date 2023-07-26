@@ -63,7 +63,7 @@ const routes = [
   },
 ];
 
-export const Sidebar2 = ({
+export const Sidebar = ({
   apiLimitCount = 0,
   isPro = false,
 }: {
