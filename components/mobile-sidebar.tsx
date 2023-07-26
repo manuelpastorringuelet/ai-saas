@@ -30,9 +30,14 @@ const MobileSidebar = ({
           <Menu />
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="p-0">
-        <Sidebar isPro={isPro} apiLimitCount={apiLimitCount} />
-      </SheetContent>
+      <SheetContent
+        // Create an object with the correct props
+        {...{
+          children: <Sidebar isPro={isPro} apiLimitCount={apiLimitCount} />,
+          side: "left",
+          className: "p-0",
+        }}
+      />
     </Sheet>
   );
 };
